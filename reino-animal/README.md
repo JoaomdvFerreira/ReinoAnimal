@@ -1,1 +1,1 @@
-![alt text](https://github.com/JoaomdvFerreira/ReinoAnimal/tree/JF/adding-new-navbar-syle/reino-animal/Screenshot_1.png "First Screenshot - Reino Animal")
+![alt text](https://raw.githubusercontent.com/JoaomdvFerreira/ReinoAnimal/JF/adding-new-navbar-syle/reino-animal/Screenshot_1.png "First Screenshot - Reino Animal")
