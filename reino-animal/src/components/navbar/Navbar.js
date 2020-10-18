@@ -3,6 +3,7 @@ import { CgMenuRight } from 'react-icons/cg';
 import { AiOutlineClose } from 'react-icons/ai';
 import { IconContext } from 'react-icons/lib';
 import { Button } from '../../globalStyles';
+import { animateScroll as scroll } from 'react-scroll';
 import {
     Nav,
     NavBarContainer,
@@ -23,9 +24,9 @@ const Navbar = () => {
     const handleClick = () => setClick(!click);
     const showButton = () => window.innerWidth <= 960 ? setButton(false) : setButton(true);
     const closeMobileMenu = () => setClick(false);
-
+    const toggleHome = () => scroll.scrollToTop();
     useEffect(() => {
-        showButton()
+        showButton();
     }, []);
 
     window.addEventListener('resize', showButton);
@@ -36,14 +37,19 @@ const Navbar = () => {
                 <Nav>
                     <NavBarContainer >
                         <NavLogo to="/" onClick={closeMobileMenu}>
-                            <NavIcon />
+                            <NavIcon onClick={toggleHome} />
                         </NavLogo>
                         <MobileIcon onClick={handleClick}>
                             {click ? <AiOutlineClose /> : <CgMenuRight />}
                         </MobileIcon>
                         <NavMenu onClick={handleClick} click={click}>
                             <NavItem>
-                                <NavLinks to="/">Home</NavLinks>
+                                <NavLinks to="/"
+                                    onClick={toggleHome}
+                                    spy="true"
+                                    smooth="true"
+                                    offset={-80}
+                                    duration={1000}>Home</NavLinks>
                             </NavItem>
                             <NavItem>
                                 <NavLinks to="/services">Services</NavLinks>
@@ -56,11 +62,11 @@ const Navbar = () => {
                             </NavItem>
                             <NavItemBtn>
                                 {button ? (
-                                    <NavBtnLink to='/sign-up'>
+                                    <NavBtnLink to='/signup'>
                                         <Button primary>SIGN-UP</Button>
                                     </NavBtnLink>
                                 ) : (
-                                        <NavBtnLink to="/sign-up">
+                                        <NavBtnLink to="/signup">
                                             <Button primary>SIGN-UP</Button>
                                         </NavBtnLink>
                                     )}
