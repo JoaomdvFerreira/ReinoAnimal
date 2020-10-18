@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaPaw } from 'react-icons/fa';
+import { animateScroll as scroll } from 'react-scroll';
 import {
     FooterContainer,
     FooterWrap,
@@ -17,49 +18,56 @@ import {
 } from "./Footer.elements";
 
 const Footer = () => {
+
+    const toggleHome = () => scroll.scrollToTop();
     return (
         <FooterContainer>
             <FooterWrap>
                 <FooterLinksContainer>
                     <FooterLinksWrapper>
                         <FooterLinkItems>
-                            <FooterLinkTitle>Quem Somos</FooterLinkTitle>
-                            <FooterLink to="/signin">Empresa</FooterLink>
-                            <FooterLink to="/signin">Testemunhos</FooterLink>
-                            <FooterLink to="/signin">Termos e Condições</FooterLink>
-                            <FooterLink to="/signin">Politica de Privacidade</FooterLink>
+                            <FooterLinkTitle>Lorem Ipsum</FooterLinkTitle>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
                         </FooterLinkItems>
                         <FooterLinkItems>
-                            <FooterLinkTitle>Contacte nos</FooterLinkTitle>
-                            <FooterLink to="/signin">Contactos</FooterLink>
-                            <FooterLink to="/signin">FAQs</FooterLink>
-                            <FooterLink to="/signin">Parcerias</FooterLink>
-                            <FooterLink to="/signin">Apoios</FooterLink>
+                            <FooterLinkTitle>Lorem Ipsum</FooterLinkTitle>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
                         </FooterLinkItems>
                     </FooterLinksWrapper>
                     <FooterLinksWrapper>
                         <FooterLinkItems>
-                            <FooterLinkTitle>Galeria</FooterLinkTitle>
-                            <FooterLink to="/signin">Videos</FooterLink>
-                            <FooterLink to="/signin">Imagens</FooterLink>
-                            <FooterLink to="/signin">Produtos</FooterLink>
-                            <FooterLink to="/signin">Serviços</FooterLink>
+                            <FooterLinkTitle>Lorem Ipsum</FooterLinkTitle>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
                         </FooterLinkItems>
                         <FooterLinkItems>
-                            <FooterLinkTitle>Redes Sociais</FooterLinkTitle>
-                            <FooterLink to="/signin">Instagram</FooterLink>
-                            <FooterLink to="/signin">Facebook</FooterLink>
-                            <FooterLink to="/signin">Youtube</FooterLink>
-                            <FooterLink to="/signin">Twitter</FooterLink>
+                            <FooterLinkTitle>Lorem Ipsum</FooterLinkTitle>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
+                            <FooterLink to="/signin">Lorem Ipsum</FooterLink>
                         </FooterLinkItems>
                     </FooterLinksWrapper>
                 </FooterLinksContainer>
                 <SocialMedia>
                     <SocialMediaWrap>
-                        <SocialLogo to="/">
+                        <SocialLogo to="/"
+                            onClick={toggleHome}
+                            spy="true"
+                            smooth="true"
+                            offset={-80}
+                            duration={1000}>
                             <FaPaw />
                         </SocialLogo>
-                        <WebsiteRights>Reino Animal © {new Date().getFullYear()} All rights reserved.
+                        <WebsiteRights>João Ferreira © {new Date().getFullYear()} All rights reserved.
                         </WebsiteRights>
                         <SocialIcons>
                             <SocialIconLink href="/" target="_blank" aria-label="Facebook">
