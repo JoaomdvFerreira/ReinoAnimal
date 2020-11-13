@@ -25,6 +25,7 @@ const Navbar = () => {
     const showButton = () => window.innerWidth <= 960 ? setButton(false) : setButton(true);
     const closeMobileMenu = () => setClick(false);
     const toggleHome = () => scroll.scrollToTop();
+
     useEffect(() => {
         showButton();
     }, []);

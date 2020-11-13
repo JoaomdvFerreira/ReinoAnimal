@@ -24,6 +24,14 @@ export const Container = styled.div`
     }
 `;
 
+export const Wrapper = styled.div`
+    padding: 160px 0;
+
+    @media screen and (max-width: 768px){
+        padding: 30px 0;
+    }
+`;
+
 export const Button = styled.button`
     border-radius: 4px;
     background: ${({ primary }) => (primary ? '#4B59F7' : '#0467FB')};
