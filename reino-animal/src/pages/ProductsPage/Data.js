@@ -10,6 +10,6 @@ export const homeObjTwo = {
     headline: 'Products Page',
     topLine: '',
     start: '',
-    img: require('../../images/svg-2.svg'),
+    img: require('../../images/products/product-3.png'),
     alt: 'PetShop'
 };

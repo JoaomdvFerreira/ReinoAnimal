@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer, Navbar } from './components';
+import { Footer, Navbar, NotFound } from './components';
 import GlobalStyle from './globalStyles';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/HomePage/Home';
@@ -11,7 +11,7 @@ import Signup from './pages/SignupPage/Signup';
 const App = () => {
   return (
     <Router>
-      <GlobalStyle></GlobalStyle>
+      <GlobalStyle />
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
@@ -20,6 +20,7 @@ const App = () => {
         <Route path="/contacts" exact component={Contacts} />
         <Route path="/products" exact component={Products} />
         <Route path="/signup" exact component={Signup} />
+        <Route component={NotFound} />
       </Switch>
       <Footer />
     </Router>
