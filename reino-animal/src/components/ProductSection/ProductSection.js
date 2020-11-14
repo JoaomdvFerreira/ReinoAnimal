@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from '../../globalStyles';
 import {
     ProdSection,
@@ -11,10 +11,26 @@ import {
     ProdItemTitle,
     ProdItemDescription,
     ProdItemImage,
+    ProdItemPrice,
     ProdItemButton
 } from './ProductSection.elements';
 
-const ProductSection = ({ img }) => {
+import axios from '../../axios';
+
+const ProductSection = () => {
+    const [products, setProducts] = useState([]);
+
+    const getProductList = () => {
+        axios.get('/get/productList').then((res) => {
+            setProducts(res.data);
+        })
+    }
+
+    useEffect(() => {
+        getProductList();
+        console.log(products)
+    }, [])
+
     return (
         <ProdSection>
             <Container>
@@ -25,48 +41,17 @@ const ProductSection = ({ img }) => {
                     </ProdSearchBarIcon>
                 </ProdSearchContainer>
                 <ProdItemsList>
-                    <ProdItem>
-                        <ProdItemTitle>Comida pro Duque!</ProdItemTitle>
-                        <ProdItemDescription>Pequeno almoço dos campeões</ProdItemDescription>
-                        <ProdItemImage src={img} alt="test" />
-                        <ProdItemButton>Compra aí oh Xoããããããoooo</ProdItemButton>
-                    </ProdItem>
-                    <ProdItem>
-                        <ProdItemTitle>Comida pro Duque!</ProdItemTitle>
-                        <ProdItemDescription>Pequeno almoço dos campeões</ProdItemDescription>
-                        <ProdItemImage src={img} alt="test" />
-                        <ProdItemButton>Compra aí oh Xoããããããoooo</ProdItemButton>
-                    </ProdItem>
-                    <ProdItem>
-                        <ProdItemTitle>Comida pro Duque!</ProdItemTitle>
-                        <ProdItemDescription>Pequeno almoço dos campeões</ProdItemDescription>
-                        <ProdItemImage src={img} alt="test" />
-                        <ProdItemButton>Compra aí oh Xoããããããoooo</ProdItemButton>
-                    </ProdItem>
-                    <ProdItem>
-                        <ProdItemTitle>Comida pro Duque!</ProdItemTitle>
-                        <ProdItemDescription>Pequeno almoço dos campeões</ProdItemDescription>
-                        <ProdItemImage src={img} alt="test" />
-                        <ProdItemButton>Compra aí oh Xoããããããoooo</ProdItemButton>
-                    </ProdItem>
-                    <ProdItem>
-                        <ProdItemTitle>Comida pro Duque!</ProdItemTitle>
-                        <ProdItemDescription>Pequeno almoço dos campeões</ProdItemDescription>
-                        <ProdItemImage src={img} alt="test" />
-                        <ProdItemButton>Compra aí oh Xoããããããoooo</ProdItemButton>
-                    </ProdItem>
-                    <ProdItem>
-                        <ProdItemTitle>Comida pro Duque!</ProdItemTitle>
-                        <ProdItemDescription>Pequeno almoço dos campeões</ProdItemDescription>
-                        <ProdItemImage src={img} alt="test" />
-                        <ProdItemButton>Compra aí oh Xoããããããoooo</ProdItemButton>
-                    </ProdItem>
-                    <ProdItem>
-                        <ProdItemTitle>Comida pro Duque!</ProdItemTitle>
-                        <ProdItemDescription>Pequeno almoço dos campeões</ProdItemDescription>
-                        <ProdItemImage src={img} alt="test" />
-                        <ProdItemButton>Compra aí oh Xoããããããoooo</ProdItemButton>
-                    </ProdItem>
+                    {
+                        products.map(({ name, description, price, imageBase64 }, index) => (
+                            <ProdItem key={index}>
+                                <ProdItemTitle>{name}</ProdItemTitle>
+                                <ProdItemDescription>{description}</ProdItemDescription>
+                                <ProdItemImage src={imageBase64} alt="test" />
+                                <ProdItemPrice>{price}€</ProdItemPrice>
+                                <ProdItemButton>Buy Now</ProdItemButton>
+                            </ProdItem>
+                        ))
+                    }
                 </ProdItemsList>
             </Container>
         </ProdSection>
