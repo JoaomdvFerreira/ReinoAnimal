@@ -6,14 +6,10 @@ import {
     ProdSearchBar,
     ProdSearchBarIcon,
     ProdIcon,
-    ProdItemsList,
-    ProdItem,
-    ProdItemTitle,
-    ProdItemDescription,
-    ProdItemImage,
-    ProdItemPrice,
-    ProdItemButton
+    ProdItemsList
 } from './ProductSection.elements';
+
+import Product from "../Product/Product";
 
 import axios from '../../axios';
 
@@ -28,7 +24,6 @@ const ProductSection = () => {
 
     useEffect(() => {
         getProductList();
-        console.log(products)
     }, [])
 
     return (
@@ -42,14 +37,14 @@ const ProductSection = () => {
                 </ProdSearchContainer>
                 <ProdItemsList>
                     {
-                        products.map(({ name, description, price, imageBase64 }, index) => (
-                            <ProdItem key={index}>
-                                <ProdItemTitle>{name}</ProdItemTitle>
-                                <ProdItemDescription>{description}</ProdItemDescription>
-                                <ProdItemImage src={imageBase64} alt="test" />
-                                <ProdItemPrice>{price}€</ProdItemPrice>
-                                <ProdItemButton>Buy Now</ProdItemButton>
-                            </ProdItem>
+                        products.map(({ id, name, description, price, imageBase64 }, index) => (
+                            <Product key={index}
+                                id={id}
+                                name={name}
+                                description={description}
+                                price={price}
+                                imageBase64={imageBase64}
+                            />
                         ))
                     }
                 </ProdItemsList>

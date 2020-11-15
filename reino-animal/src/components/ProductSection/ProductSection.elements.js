@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
-import { Button } from '../../globalStyles';
 
 export const ProdSection = styled.div`
 padding: 30px 0;
@@ -49,37 +48,13 @@ export const ProdItemsList = styled.div`
     margin-top: 40px;
     margin-bottom: 40px;
 
+    @media screen and (max-width: 1200px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     @media screen and (max-width: 960px){
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 `;
-
-export const ProdItem = styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    @media screen and (max-width: 960px){
-        max-width: 430px;
-    }
-`;
-
-export const ProdItemTitle = styled.h3`
-
-`;
-
-export const ProdItemDescription = styled.p`
-
-`;
-
-export const ProdItemPrice = styled.p`
-
-`;
-
-export const ProdItemImage = styled.img`
-
-`;
-
-export const ProdItemButton = styled(Button)``;

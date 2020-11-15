@@ -14,10 +14,15 @@ import {
     NavItem,
     NavLinks,
     NavItemBtn,
-    NavBtnLink
+    NavBtnLink,
+    NavBasketIcon,
+    NavBasketCount
 } from './Navbar.elements';
+import { useStateValue } from '../../StateProvider';
 
 const Navbar = () => {
+    const [{ basket }] = useStateValue();
+
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
@@ -72,6 +77,12 @@ const Navbar = () => {
                                         </NavBtnLink>
                                     )}
                             </NavItemBtn>
+                            <NavItem>
+                                <NavLinks to="/checkout">
+                                    <NavBasketIcon />
+                                    <NavBasketCount>{basket?.length}</NavBasketCount>
+                                </NavLinks>
+                            </NavItem>
                         </NavMenu>
                     </NavBarContainer>
                 </Nav>
