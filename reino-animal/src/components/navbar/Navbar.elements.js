@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Container } from '../../globalStyles';
 import { Link } from 'react-router-dom';
-import { FaPaw } from 'react-icons/fa';
+import { FaPaw, FaShoppingBasket } from 'react-icons/fa';
 
 export const Nav = styled.nav`
     background: #101522;
@@ -129,4 +129,13 @@ export const NavBtnLink = styled(Link)`
     width: 100% ;
     border: none;
     outline: none;
+`;
+
+export const NavBasketIcon = styled(FaShoppingBasket)`
+    margin-left: 10px;
+    margin-right: 10px;
+`;
+
+export const NavBasketCount = styled.span`
+    font-size: 18px;
 `;
